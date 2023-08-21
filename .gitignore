@@ -1,0 +1,9 @@
+# Project exclude paths
+env/
+.env
+*.pyc
+__pycache__
+*.log
+media/
+.vscode/
+pgdata/

@@ -1,0 +1,47 @@
+{% extends 'user/base.html' %}
+{% load filename %}
+
+
+{% block content %}
+
+    <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+        <h1 class="display-4">PEP8</h1>
+    </div>
+
+    <div class="container">
+        <table class="table table-hover border-dark"> {# table-success #}
+            <thead>
+            <tr>
+                <td>Дата</td>
+                <td>Название файла</td>
+                <td>Отправка сообщения</td>
+                <td>Ошибки</td>
+            </tr>
+            </thead>
+            <tbody>
+            {% for log in user_log %}
+                
+                <tr>
+
+                    <td>{{ log.timestamp }}</td>
+                    <td>{{ log.file.file.name|filename }}</td>
+                    <td>{{ log.send_mail }}</td>
+                    <td>
+                        {% for stat in log.statistics %}
+                            {{ stat }}<br>
+                        {% endfor %}
+                    </td>
+
+                </tr>
+
+                </div>
+
+            {% endfor %}
+
+    </tbody>
+
+    </table>
+    <script src="/static/js/bootstrap.bundle.js"></script>
+
+
+{% endblock %}

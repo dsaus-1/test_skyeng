@@ -1,0 +1,7 @@
+python-dotenv
+psycopg2-binary
+pycodestyle
+django-celery-beat
+celery
+python-json-logger
+redis

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Войти</title>
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body">
+
+<main class="form-signin w-50 m-auto">
+
+    <form method="post" class="col-6">
+        <h1 class="h3 mb-3 fw-normal">Для авторизации введите данные:</h1>
+        {% csrf_token %}
+        {{ form.as_p }}
+
+        <button class="w-100 btn btn-lg btn-dark" type="submit">Войти</button>
+        <br>
+        <br>
+        <li><a class="text-muted" href="{% url 'user:register' %}">Создать новый аккаунт</a></li>
+
+    </form>
+</main>
+
+</body>
+</html>

@@ -1,0 +1,55 @@
+{% extends 'user/base.html' %}
+
+{% block content %}
+    <style>
+        .formset .formset-col {
+            display: inline-block;
+            width: 30%;
+            margin: 0 auto;
+            padding-right: 10px;
+        }
+
+        .formset .formset_row {
+            margin: 10px auto;
+        }
+
+        .formset {
+            margin: 20px auto;
+        }
+
+        .helptext {
+            font-size: 12px;
+            color: gray;
+        }
+    </style>
+    <div class="container">
+        <form enctype="multipart/form-data" method="post">
+            <div class="row">
+                <div class="col-5">
+                    <div class="card">
+                        <div class="card-body">
+                            {% csrf_token %}
+                            {{ form.as_p }}
+                            <button class="p-2 btn btn-dark" type="submit">Добавить</button>
+                            <td><a class="p-2 btn btn-dark" href="{% url 'file:home' %}">Назад</a></td>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </form>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.formset/1.2.2/jquery.formset.min.js"
+            integrity="sha512-ltwjKsDTo3hW/wV66ZaEkf2wOAFxmg7rWM76J8kOcYKLSKy44WBYO/BFaNNH3NGDS8BSz3meB9wtSnm41oL+pA=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        $('.formset_row').formset({
+            addText: '<span class="btn btn-dark">Добавить сорт</span>',
+            deleteText: '<span class="btn btn-dark">Удалить</span>',
+            prefix: 'version_set',
+        });
+    </script>
+
+
+{% endblock %}

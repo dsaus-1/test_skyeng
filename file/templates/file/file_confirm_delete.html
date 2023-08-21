@@ -1,0 +1,25 @@
+{% extends 'user/base.html' %}
+{% load filename %}
+
+{% block content %}
+    <div class="container">
+        <div class="px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+            <div class="col-6 ">
+                <div class="card ">
+                    <div class="card-body">
+                        <form enctype="multipart/form-data" method="post" class="text-center">
+                            {% csrf_token %}
+                            <p>
+                                Вы действительно хотите удалить файл: "{{ object.file.name|filename }}"?
+                            </p>
+                            <a class="text-muted" href="{% url 'file:home' %}">Отменить</a>
+                            <button class="p-2 btn btn-dark" type="submit">Удалить</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}
