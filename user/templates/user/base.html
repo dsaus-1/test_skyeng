@@ -19,7 +19,7 @@
                 <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
                     {% if user.is_authenticated %}
                     <li><a href="{% url 'file:home' %}" class="nav-link px-2 text-secondary">Главная</a></li>
-                    <li><a href="{% url 'file:log' %}" class="nav-link px-2 text-secondary">Статистика</a></li>
+                    <li><a href="{% url 'file:logging' %}" class="nav-link px-2 text-secondary">Статистика</a></li>
                     {% endif %}
                 </ul>
                 <div class="float-end">
