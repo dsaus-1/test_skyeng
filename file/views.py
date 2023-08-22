@@ -69,12 +69,14 @@ class FileDeleteView(UserPassesTestMixin, DeleteView):
 def page_logging(request):
     user_log = []
 
-    with open(BASE_DIR/'logging.log', 'r') as data:
+    with open('logging.log', 'r') as data:
         for log in data:
             log = json.loads(log)
 
             if log['user'] == request.user.pk:
-                log['file'] = get_object_or_404(File, pk=log['file'])              
-                user_log.append(log)
+                file = File.objects.get(pk=log['file'])
+                if file:
+                    log['file'] = file   
+                    user_log.append(log)
 
     return render(request, 'file/logging_list.html', context={'user_log': user_log})

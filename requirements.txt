@@ -5,3 +5,4 @@ django-celery-beat
 celery
 python-json-logger
 redis
+gunicorn
